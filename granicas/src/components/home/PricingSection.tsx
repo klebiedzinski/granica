@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function PricingSection() {
   return (
-    <section className="py-20 px-4 bg-white" id="cennik">
+    <section className="py-20 px-4 bg-white" id="jak-ustalamy-cene">
       <div className="max-w-[1200] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Przejrzyste zasady
+            Jak ustalamy cenę
           </h2>
           <p className="text-text-muted">
             Każde drzewo jest inne, dlatego ostateczną cenę ustalamy po darmowej
@@ -69,15 +71,15 @@ export default function PricingSection() {
           </table>
         </div>
         <div className="mt-8 text-center">
-          <a
+          <Link
             className="inline-flex items-center gap-2 text-sm font-bold text-text-main border border-border-color px-6 py-3 rounded-full hover:bg-background-light transition-colors"
-            href="#kontakt"
+            href="/wycena"
           >
             <span className="material-symbols-outlined text-lg text-primary">
               photo_camera
             </span>
             Prześlij zdjęcie do wyceny
-          </a>
+          </Link>
         </div>
       </div>
     </section>

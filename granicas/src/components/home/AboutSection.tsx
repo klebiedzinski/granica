@@ -1,3 +1,5 @@
+import { Check, LucideVerified } from "lucide-react";
+
 export default function AboutSection() {
   return (
     <section className="py-20 px-4 bg-background-light" id="o-nas">
@@ -8,7 +10,7 @@ export default function AboutSection() {
               <div className="w-full h-full bg-black" />
             </div>
             <div className="absolute bottom-0 right-0 bg-primary text-black p-2 rounded-full border-4 border-white">
-              <span className="material-symbols-outlined">verified_user</span>
+              <Check />
             </div>
           </div>
           <div className="flex flex-col text-center md:text-left">

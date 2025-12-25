@@ -1,15 +1,75 @@
-export default function ServicesSection() {
+"use client";
+
+import { Axe, Leaf, Shovel, TreePine } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+interface ServicesSectionProps {
+  className?: string;
+}
+
+const services = [
+  {
+    icon: <TreePine className="h-6 w-6" />,
+    title: "Wycinka drzew",
+    description:
+      "Bezpieczna wycinka drzew w różnym terenie – od ogrodów przydomowych po trudne lokalizacje.",
+    items: [
+      "metodą tradycyjną",
+      "metodą alpinistyczną",
+      "z podnośnika koszowego",
+    ],
+  },
+
+  {
+    icon: <Axe className="h-6 w-6" />,
+    title: "Usuwanie pni i zrębkowanie",
+    description:
+      "Usuwamy to, co zostaje po wycince – tak, aby teren był gotowy do dalszego użytku.",
+    items: [
+      "frezowanie pni poniżej poziomu gruntu",
+      "zrębkowanie gałęzi na miejscu",
+      "uprzątnięcie i przygotowanie terenu",
+    ],
+  },
+  {
+    icon: <Shovel className="h-6 w-6" />,
+    title: "Prace minikoparką",
+    description:
+      "Drobne prace ziemne przy okazji wycinki – bez angażowania dużego sprzętu.",
+    items: [
+      "wykopy pod nasadzenia lub ogrodzenia",
+      "usuwanie pozostałości po korzeniach",
+    ],
+  },
+  {
+    icon: <Leaf className="h-6 w-6" />,
+    title: "Przycinanie i pielęgnacja",
+    description:
+      "Utrzymanie drzew w dobrej kondycji – redukcja zagrożeń i poprawa estetyki koron.",
+    items: [
+      "cięcia sanitarne i korygujące",
+      "usuwanie suchych i niebezpiecznych gałęzi",
+    ],
+  },
+];
+
+export default function ServicesSection({ className }: ServicesSectionProps) {
   return (
-    <section className="py-20 px-4 bg-white rounded-t-[3rem]" id="uslugi">
-      <div className="max-w-[1200] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-              Nasze usługi
+    <section
+      id="uslugi"
+      className={cn("py-20 px-4 bg-white rounded-t-[3rem]", className)}
+    >
+      <div className="max-w-[1200px] mx-auto space-y-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+          <div className="space-y-3 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Usługi arborystyczne
             </h2>
-            <p className="text-text-muted text-lg max-w-md">
-              Kompleksowa obsługa zieleni wysokiej z wykorzystaniem technik
-              alpinistycznych.
+            <p className="text-black/60 text-lg">
+              Od pojedynczego drzewa po duże zadrzewione działki – dobieramy
+              metodę pracy do miejsca, bezpieczeństwa otoczenia i Twojego
+              budżetu.
             </p>
           </div>
           <a
@@ -19,39 +79,39 @@ export default function ServicesSection() {
             Zapytaj o inną usługę
           </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="group p-8 rounded-2xl bg-background-light hover:bg-white border border-transparent hover:border-border-color hover:shadow-lg transition-all duration-300">
-            <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-text-main group-hover:bg-primary transition-colors">
-              <span className="material-symbols-outlined text-3xl">
-                nature_people
-              </span>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {services.map((service, index) => (
+            <div
+              key={service.title + index}
+              className="space-y-3 rounded-2xl border border-border-color bg-background-light p-8 transition-shadow hover:shadow-lg"
+            >
+              <div className="flex items-center gap-4">
+                <div className="rounded-full bg-primary/15 text-text-main p-3">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {service.title}
+                </h3>
+              </div>
+              <p className="leading-relaxed text-black/60">
+                {service.description}
+              </p>
+              <div className="space-y-2">
+                {service.items.map((item, itemIndex) => (
+                  <div
+                    key={item + itemIndex}
+                    className="flex items-center gap-2 text-sm font-medium "
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    <p className="text-text-muted text-md font-semibold">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-3">Wycinka sekcyjna</h3>
-            <p className="text-text-muted leading-relaxed">
-              Bezpieczne usuwanie drzew w trudnym terenie (przy budynkach,
-              liniach energetycznych) przy użyciu technik linowych.
-            </p>
-          </div>
-          <div className="group p-8 rounded-2xl bg-background-light hover:bg-white border border-transparent hover:border-border-color hover:shadow-lg transition-all duration-300">
-            <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-text-main group-hover:bg-primary transition-colors">
-              <span className="material-symbols-outlined text-3xl">cut</span>
-            </div>
-            <h3 className="text-xl font-bold mb-3">Pielęgnacja koron</h3>
-            <p className="text-text-muted leading-relaxed">
-              Cięcia sanitarne, korygujące i prześwietlające. Redukcja korony w
-              celu poprawy statyki i zdrowia drzewa.
-            </p>
-          </div>
-          <div className="group p-8 rounded-2xl bg-background-light hover:bg-white border border-transparent hover:border-border-color hover:shadow-lg transition-all duration-300">
-            <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-text-main group-hover:bg-primary transition-colors">
-              <span className="material-symbols-outlined text-3xl">forest</span>
-            </div>
-            <h3 className="text-xl font-bold mb-3">Frezowanie pni</h3>
-            <p className="text-text-muted leading-relaxed">
-              Mechaniczne usuwanie pni poniżej poziomu gruntu oraz zrąbkowanie
-              gałęzi po wycince. Pozostawiamy porządek.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

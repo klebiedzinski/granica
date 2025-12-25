@@ -1,3 +1,6 @@
+import { VerifiedIcon } from "lucide-react";
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <header className="relative pt-32 pb-20 px-4 md:px-8 flex flex-col items-center justify-center min-h-[85vh]">
@@ -9,30 +12,26 @@ export default function Hero() {
               Dostępne terminy na ten tydzień
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight">
-            Profesjonalna <br />
-            <span className="relative inline-block z-10">
-              <span className="relative z-10">wycinka drzew.</span>
-              <span className="absolute bottom-1 left-0 w-full h-4 bg-primary/40 -z-0 rounded-sm" />
-            </span>
+          <h1 className="text-5xl md:text-5xl font-black leading-[1.1] tracking-tight">
+            Profesjonalna wycinka drzew
           </h1>
           <p className="text-lg text-text-muted max-w-md leading-relaxed">
             Działamy we Włocławku i Kujawsko-Pomorskim. Zapewniamy
             bezpieczeństwo, precyzję i porządek po zakończonej pracy.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              className="bg-primary text-black font-bold text-base px-8 py-3.5 rounded-full hover:scale-105 transition-transform duration-200"
-              href="#kontakt"
+            <Link
+              className="bg-primary text-white font-bold text-base px-8 py-3.5 rounded-full hover:scale-105 transition-transform duration-200"
+              href="/wycena"
             >
-              Zamów wycenę
-            </a>
-            <a
+              Darmowa wycena
+            </Link>
+            <Link
               className="bg-white border border-border-color text-text-main font-medium text-base px-8 py-3.5 rounded-full hover:bg-gray-50 transition-colors"
-              href="#realizacje"
+              href="/realizacje"
             >
               Zobacz realizacje
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -42,12 +41,8 @@ export default function Hero() {
             <div className="w-full h-full bg-black grayscale-[30%] hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105" />
             <div className="absolute bottom-6 left-6 z-20 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-white/20 shadow-sm">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-xl">
-                  verified
-                </span>
-                <span className="text-sm font-bold text-text-main">
-                  Certyfikowany arborysta
-                </span>
+                <VerifiedIcon />
+                Certyfikowany arborysta
               </div>
             </div>
           </div>

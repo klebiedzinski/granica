@@ -1,11 +1,15 @@
 import Navbar from "@/components/home/Navbar";
 import Hero from "@/components/home/Hero";
 import ServicesSection from "@/components/home/ServicesSection";
-import AboutSection from "@/components/home/AboutSection";
-import PricingSection from "@/components/home/PricingSection";
+import HowWeWorkSection from "@/components/home/HowWeWorkSection";
 import RealizationsSection from "@/components/home/RealizationsSection";
-import ContactSection from "@/components/home/ContactSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import PricingSection from "@/components/home/PricingSection";
+import AreaSection from "@/components/home/AreaSection";
+import FaqSection from "@/components/home/FaqSection";
+import FinalCtaSection from "@/components/home/FinalCtaSection";
 import Footer from "@/components/home/Footer";
+import AboutSection from "@/components/home/AboutSection";
 
 export default function HomePage() {
   return (
@@ -14,9 +18,14 @@ export default function HomePage() {
       <Hero />
       <ServicesSection />
       <AboutSection />
-      <PricingSection />
+      <HowWeWorkSection />
       <RealizationsSection />
-      <ContactSection />
+      <TestimonialsSection />
+      {/* <PricingSection />
+       */}
+      <AreaSection />
+      <FaqSection />
+      <FinalCtaSection />
       <Footer />
     </>
   );
