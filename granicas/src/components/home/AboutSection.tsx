@@ -1,13 +1,20 @@
+import Image from "next/image";
 import { Check, LucideVerified } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section className="py-20 px-4 bg-background-light" id="o-nas">
+    <section className="py-20 px-4 bg-secondary/20" id="o-nas">
       <div className="max-w-[1200] mx-auto">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-border-color flex flex-col md:flex-row items-center gap-10 shadow-sm">
           <div className="relative shrink-0">
             <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/20">
-              <div className="w-full h-full bg-black" />
+              <Image
+                src="/expert.jpeg"
+                alt="Ekspert arborysta"
+                width={900}
+                height={900}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="absolute bottom-0 right-0 bg-primary text-black p-2 rounded-full border-4 border-white">
               <Check />

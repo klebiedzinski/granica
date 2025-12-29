@@ -9,11 +9,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { MenuIcon } from "lucide-react";
 
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 w-full">
-      <div className="bg-secondary backdrop-blur-md border border-white/20 shadow-sm rounded-full px-6 py-3 flex items-center justify-between w-full max-w-[1200]">
+      <div className="bg-white/90 backdrop-blur-md border border-white/20 shadow-sm rounded-full px-6 py-3 flex items-center justify-between w-full max-w-[1200]">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/symbol.png"
@@ -52,7 +53,7 @@ export default function Navbar() {
         </div>
         <div className="flex items-center gap-4">
           <Link
-            className="hidden sm:flex text-primary hover:bg-primary/80 transition-colors text-black text-sm font-bold px-5 py-2.5 -center justify-center"
+            className="hidden sm:flex text-white bg-primary hover:bg-primary/80 transition-colors text-black text-sm font-bold px-5 py-2.5 rounded-full items-center justify-center"
             href="/wycena"
           >
             Darmowa wycena
@@ -62,7 +63,7 @@ export default function Navbar() {
               className="md:hidden p-1 text-text-main"
               aria-label="Otwórz menu"
             >
-              <span className="material-symbols-outlined">menu</span>
+              <MenuIcon />
             </SheetTrigger>
             <SheetContent side="right" className="bg-white">
               <SheetHeader>

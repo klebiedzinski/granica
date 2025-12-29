@@ -1,33 +1,65 @@
-import Link from "next/link";
+import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
+import { WycenaForm } from "@/app/wycena/WycenaForm";
 
 export default function FinalCtaSection() {
   return (
-    <section className="py-20  bg-background-light" id="cta-koncowe">
+    <section className="py-24 px-4 bg-secondary/15" id="kontakt">
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex w-full flex-col gap-8 overflow-hidden rounded-2xl bg-white  border border-border-color md:flex-row md:items-center md:justify-between md:p-10">
-          <div className="flex-1">
-            <h3 className="mb-3 text-2xl font-semibold tracking-tight md:mb-4 md:text-3xl lg:text-4xl">
-              Masz drzewo do wycięcia lub przycięcia?
-            </h3>
-            <p className="max-w-xl text-text-muted md:text-lg">
-              Zrób zdjęcie i wyślij je przez formularz darmowej wyceny. W
-              odpowiedzi otrzymasz propozycję terminu oraz orientacyjną cenę
-              realizacji.
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-start">
+          {/* Left - Content */}
+          <div className="flex flex-col justify-between h-full">
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+              Darmowa wycena
             </p>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-main mb-4">
+              Wyceń swoje <span className="text-primary">drzewo.</span>
+            </h2>
+            <p className="text-text-muted text-base mb-10 max-w-sm leading-relaxed">
+              Wyślij zdjęcie i opis – otrzymasz wycenę i termin realizacji
+              zwykle tego samego dnia.
+            </p>
+
+            {/* Contact options */}
+            <div className="space-y-4 mb-8">
+              <a
+                href="mailto:kontakt@granica.pl"
+                className="flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-full border border-border-color flex items-center justify-center group-hover:border-primary transition-colors">
+                  <Mail className="h-4 w-4 text-text-muted group-hover:text-primary transition-colors" />
+                </div>
+                <span className="text-text-main text-base group-hover:text-primary transition-colors">
+                  kontakt@granica.pl
+                </span>
+              </a>
+              <a
+                href="tel:+48123456789"
+                className="flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-full border border-border-color flex items-center justify-center group-hover:border-primary transition-colors">
+                  <Phone className="h-4 w-4 text-text-muted group-hover:text-primary transition-colors" />
+                </div>
+                <span className="text-text-main text-base group-hover:text-primary transition-colors">
+                  +48 123 456 789
+                </span>
+              </a>
+            </div>
+
+            {/* Logo */}
+            <div className="relative w-100 h-100 ">
+              <Image
+                src="/logo.png"
+                alt="Granica logo"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
-          <div className="flex shrink-0 flex-col-reverse gap-3 items-stretch">
-            <a
-              href="tel:+48123456789"
-              className="inline-flex items-center justify-center rounded-full border border-primary bg-transparent px-5 py-2.5 text-xs font-semibold text-text-main transition-colors hover:bg-primary/10 md:px-6 md:py-3"
-            >
-              Wolisz zadzwonić? +48 123 456 789
-            </a>
-            <Link
-              href="/wycena"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-black transition-colors hover:bg-primary/90 md:px-8 md:py-3.5"
-            >
-              Przejdź do darmowej wyceny
-            </Link>
+
+          {/* Right - Form in card */}
+          <div className="bg-white rounded-2xl p-8 shadow-sm">
+            <WycenaForm />
           </div>
         </div>
       </div>

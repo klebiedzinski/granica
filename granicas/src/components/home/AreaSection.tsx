@@ -1,8 +1,11 @@
 export default function AreaSection() {
   return (
-    <section className="py-20 px-4 bg-background-light" id="obszar-dzialania">
+    <section className="py-20 px-4 bg-secondary/15" id="obszar-dzialania">
       <div className="max-w-[1200] mx-auto grid gap-10 md:grid-cols-2 items-center">
         <div>
+          <span className="inline-flex items-center rounded-full bg-secondary/15 text-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
+            Obszar działania
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Gdzie pracujemy
           </h2>
@@ -15,7 +18,7 @@ export default function AreaSection() {
             listę miast oraz informacje o dojeździe.
           </p>
         </div>
-        <div className="rounded-3xl border border-border-color bg-white h-64 md:h-80 flex items-center justify-center text-text-muted text-sm">
+        <div className="rounded-3xl border border-primary/20 bg-white h-64 md:h-80 flex items-center justify-center text-text-muted text-sm shadow-sm">
           Placeholder na mapę / grafikę obszaru działania.
         </div>
       </div>

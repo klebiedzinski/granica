@@ -32,7 +32,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/symbol.ico" type="image/x-icon" />
       </head>
-      <body className="bg-background text-foreground font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
+      <body className="bg-secondary/15 text-foreground font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
         {children}
       </body>
     </html>
