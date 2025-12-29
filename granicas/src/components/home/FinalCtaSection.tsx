@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
-import { WycenaForm } from "@/app/wycena/WycenaForm";
+import { WycenaForm } from "@/app/WycenaForm";
 
 export default function FinalCtaSection() {
   return (
