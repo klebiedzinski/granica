@@ -1,31 +1,35 @@
-import Navbar from "@/components/home/Navbar";
-import Hero from "@/components/home/Hero";
-import ServicesSection from "@/components/home/ServicesSection";
-import HowWeWorkSection from "@/components/home/HowWeWorkSection";
-import RealizationsSection from "@/components/home/RealizationsSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import PricingSection from "@/components/home/PricingSection";
-import AreaSection from "@/components/home/AreaSection";
-import FaqSection from "@/components/home/FaqSection";
-import FinalCtaSection from "@/components/home/FinalCtaSection";
-import Footer from "@/components/home/Footer";
-import AboutSection from "@/components/home/AboutSection";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
+import Services from "@/components/Services";
+import Works from "@/components/Works";
+import Process from "@/components/Process";
+import About from "@/components/About";
+import Review from "@/components/Review";
+import Area from "@/components/Area";
+import Faq from "@/components/Faq";
+import FinalCta from "@/components/FinalCta";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <ServicesSection />
-      <HowWeWorkSection />
-      <RealizationsSection />
-      {/* <AboutSection /> */}
-      <TestimonialsSection />
-      {/* <PricingSection />
-       */}
-      <AreaSection />
-      <FaqSection />
-      <FinalCtaSection />
+      <main id="top">
+        <Hero />
+        {/* <TrustBar /> */}
+        <Services />
+        <Process />
+        {/* <About /> */}
+        <Review />
+        <Area />
+        <Faq />
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <hr className="border-line" />
+        </div>
+        {/* <Works /> */}
+        <FinalCta />
+      </main>
       <Footer />
     </>
   );

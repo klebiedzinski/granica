@@ -1,63 +1,48 @@
-import Image from "next/image";
-import Link from "next/link";
-
-const realizacje = [
-  {
-    id: "wycinka-sekcyjna",
-    title: "Wycinka sekcyjna przy linii energetycznej",
-    image: "/expert.jpeg",
-    className: "row-span-2",
-  },
-  {
-    id: "porzadkowanie-terenu",
-    title: "Porządkowanie terenu po wycince",
-    image: "/expert.jpeg",
-    className: "",
-  },
-  {
-    id: "frezowanie-pnia",
-    title: "Frezowanie pnia",
-    image: "/expert.jpeg",
-    className: "",
-  },
-  {
-    id: "pielegnacja-starodrzewu",
-    title: "Pielęgnacja starodrzewu w parku",
-    image: "/expert.jpeg",
-    className: "md:col-span-2",
-  },
-];
+import { realizations } from "@/lib/site";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { ImageSlot } from "@/components/ui/placeholder";
+import { CallButton } from "@/components/ui/cta";
 
 export default function RealizationsSection() {
   return (
-    <section className="py-20 px-4 bg-secondary/10" id="realizacje">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="mb-10">
-          <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
-            Zrealizowane zlecenia
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Wybrane realizacje
-          </h2>
+    <section id="realizacje" className="bg-background py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeading
+            eyebrow="Zrealizowane zlecenia"
+            title="Wybrane realizacje"
+            description="Kilka przykładów z naszej codziennej pracy - od trudnych cięć sekcyjnych po porządkowanie terenu."
+          />
+          <div className="hidden sm:block">
+            <CallButton />
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[240px]">
-          {realizacje.map((item) => (
-            <Link
+
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {realizations.map((item) => (
+            <figure
               key={item.id}
-              href={`/realizacje/${item.id}`}
-              className={`relative rounded-2xl overflow-hidden group cursor-pointer ${item.className}`}
+              className="group relative overflow-hidden rounded-2xl shadow-sm"
             >
-              <Image
+              <ImageSlot
                 src={item.image}
+                label={item.title}
                 alt={item.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-medium">{item.title}</p>
-              </div>
-            </Link>
+              {/* Podpis - zawsze widoczny gradient na dole */}
+              <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 via-foreground/30 to-transparent p-5">
+                <span className="inline-block rounded-full bg-cta/90 px-2.5 py-0.5 text-xs font-semibold text-cta-foreground">
+                  {item.tag}
+                </span>
+                <p className="mt-2 font-semibold text-white">{item.title}</p>
+              </figcaption>
+            </figure>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center sm:hidden">
+          <CallButton size="lg" />
         </div>
       </div>
     </section>

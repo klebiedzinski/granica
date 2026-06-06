@@ -1,40 +1,91 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { site, testimonials } from "@/lib/site";
+import MobileCallBar from "@/components/MobileCallBar";
 
 export const metadata: Metadata = {
-  title: "Tree Service - Profesjonalna wycinka drzew Włocławek",
+  title: `${site.brand} ${site.area.base} - wycinka i pielęgnacja drzew | ${site.owner}`,
   description:
-    "Profesjonalna wycinka drzew i pielęgnacja zieleni we Włocławku i województwie Kujawsko-Pomorskim. Bezpieczeństwo, precyzja i porządek po zakończonej pracy.",
+    "Wycinka drzew (także trudna i na wysokości), przycinanie i pielęgnacja, zrębkowanie gałęzi, frezowanie pni. Włocławek, woj. kujawsko-pomorskie, mazowieckie, wielkopolskie, łódzkie. Darmowa wycena - zadzwoń.",
   metadataBase: new URL("https://treeservice.com.pl"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Tree Service - Profesjonalna wycinka drzew Włocławek",
+    title: `${site.brand} - wycinka i pielęgnacja drzew`,
     description:
-      "Kompleksowa obsługa zieleni wysokiej z wykorzystaniem technik alpinistycznych. Wycinka, pielęgnacja koron, frezowanie pni.",
-    url: "/",
-    siteName: "Tree Service",
-    locale: "pl_PL",
+      "Trudne wycinki, praca na wysokości, frezowanie pni, zrębkowanie. Sprawnie, bezpiecznie, z porządkiem po każdej pracy. Darmowa wycena.",
     type: "website",
+    locale: "pl_PL",
+    siteName: site.brand,
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: site.brandFull,
+  founder: site.owner,
+  telephone: site.phone.display,
+  vatID: site.nip,
+  description: intro_for_schema(),
+  image: "https://treeservice.com.pl/assets/images/realizacje/hero.jpg",
+  areaServed: site.area.cities.map((name) => ({ "@type": "City", name })),
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "kujawsko-pomorskie",
+    addressCountry: "PL",
+    addressLocality: site.area.base,
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: site.rating.value.replace(",", "."),
+    reviewCount: site.rating.count,
+  },
+  review: testimonials.map((t) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: t.name },
+    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+    reviewBody: t.text,
+  })),
+};
+
+function intro_for_schema() {
+  return "Wycinka drzew prosta i trudna, na wysokości i w ograniczonej przestrzeni, przycinanie i pielęgnacja, zrębkowanie gałęzi rębakiem, frezowanie pni frezarką.";
+}
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pl">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/symbol.ico" type="image/x-icon" />
+        <link
+          rel="preload"
+          href="/assets/webfonts/bricolage/bricolage-700-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/webfonts/bricolage/bricolage-700-latin-ext.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/webfonts/inter/inter-400-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* biome-ignore lint: dane strukturalne SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body className="bg-secondary/15 text-foreground font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
-        {children}
-      </body>
+      <body className="overflow-x-hidden pb-16 lg:pb-0">{children}</body>
     </html>
   );
 }
