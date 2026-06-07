@@ -89,19 +89,19 @@ export default function Hero() {
               {site.area.regions.map(cap).join(" · ")}
             </p>
 
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.03] text-balance sm:text-6xl">
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.05] text-balance sm:mt-5 sm:text-6xl sm:leading-[1.03]">
               Profesjonalna{" "}
               <span className="text-accent-light">wycinka drzew</span>
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-pretty text-white/75 sm:max-w-md lg:max-w-none">
+            <p className="mt-4 text-base leading-relaxed text-pretty text-white/75 sm:mt-6 sm:max-w-md sm:text-lg lg:max-w-none">
               Bezpiecznie usuwamy trudne drzewa - przy budynkach, nad dachem i w
               ciasnej przestrzeni. Frezujemy pnie, zrębkujemy gałęzie i
               zostawiamy porządek.
             </p>
 
             {/* ocena */}
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-4 flex items-center gap-2 sm:mt-6">
               <span className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -117,13 +117,21 @@ export default function Hero() {
               </span>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CallButton size="lg" tone="onDark" />
-              <WhatsAppButton size="lg" tone="onDark" />
+            <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
+              <CallButton
+                size="lg"
+                tone="onDark"
+                className="px-5 py-3 text-sm gap-2 sm:px-7 sm:py-4 sm:text-base sm:gap-2.5"
+              />
+              <WhatsAppButton
+                size="lg"
+                tone="onDark"
+                className="px-5 py-3 text-sm gap-2 sm:px-7 sm:py-4 sm:text-base sm:gap-2.5"
+              />
             </div>
 
             {/* atuty / mikroteksty */}
-            <div className="mt-8 grid grid-cols-1 gap-5 border-t border-white/15 pt-6 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-4 border-t border-white/15 pt-5 sm:mt-8 sm:gap-5 sm:pt-6 sm:grid-cols-2">
               <div className="flex items-start gap-3">
                 <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent-light">
                   <ShieldCheck className="size-5" aria-hidden />
