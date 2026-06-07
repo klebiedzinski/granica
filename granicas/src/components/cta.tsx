@@ -36,7 +36,9 @@ export function CallButton({
       )}
     >
       <Phone className="size-[1.1em] shrink-0" aria-hidden />
-      <span>{showNumber ? `Zadzwoń ${site.phone.short}` : "Zadzwoń"}</span>
+      <span>
+        {showNumber ? `Zadzwoń ${site.phone.short}` : site.phone.short}
+      </span>
     </a>
   );
 }
