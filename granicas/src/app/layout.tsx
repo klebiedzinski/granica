@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { site, testimonials } from "@/lib/site";
 import MobileCallBar from "@/components/MobileCallBar";
@@ -85,7 +86,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="overflow-x-hidden pb-16 lg:pb-0">{children}</body>
+      <body className="overflow-x-hidden pb-16 lg:pb-0">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
